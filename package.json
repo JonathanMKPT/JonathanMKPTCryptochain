@@ -1,0 +1,23 @@
+{
+  "name": "JonathanMKPTCryptochain",
+  "version": "1.0.0",
+  "description": "Follow along of JDKatz crypto course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanMKPT/JonathanMKPTCryptochain.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanMKPT/JonathanMKPTCryptochain/issues"
+  },
+  "homepage": "https://github.com/JonathanMKPT/JonathanMKPTCryptochain#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
