@@ -29,4 +29,25 @@ describe('Block',() => {
             expect(genesisBlock).toEqual(GENESIS_DATA);
         });
     });
+
+    describe('mineBlock()', () =>{
+        const lastBlock = Block.genesis();
+        const data = 'mined data';
+        const minedBlock = Block.mineBlock({ lastBlock, data });
+
+        it('returns a Block instace', () => {
+            expect(minedBlock instanceof Block).toBe(true);
+        });
+
+        it('sets the `lastHash` to be the `hash` of the lastBlock', () => {
+            expect(mineBlock.lastHash).toEqual(lastBlock.hash);
+        });
+
+        it('sets the `data`', () => {
+            expect(minedBlock.data).toEqual(data);
+        });
+        it('sets a `timestap`', () => {
+            expect(minedBlock.timestamp).not.toEqual(undefined);
+        });
+    });
 });
