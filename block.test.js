@@ -1,5 +1,6 @@
 const Block = require("./block");
 const { GENESIS_DATA } = require("./config");
+const cryptoHash = require('./crypto-hash');
 
 describe('Block',() => {
     const timestamp = 'a-date';
@@ -18,7 +19,6 @@ describe('Block',() => {
     describe('genesis()', () => {
         //calls instance of genesis blocks this is a static function :)
         const genesisBlock = Block.genesis();
-        console.log('genesisBlock', genesisBlock);
 
 
         it('returns a Block instance', () => {
@@ -40,7 +40,7 @@ describe('Block',() => {
         });
 
         it('sets the `lastHash` to be the `hash` of the lastBlock', () => {
-            expect(mineBlock.lastHash).toEqual(lastBlock.hash);
+            expect(minedBlock.lastHash).toEqual(lastBlock.hash);
         });
 
         it('sets the `data`', () => {
@@ -48,6 +48,9 @@ describe('Block',() => {
         });
         it('sets a `timestap`', () => {
             expect(minedBlock.timestamp).not.toEqual(undefined);
+        });
+        it('creates a sha-256 `hash` based on proper inputs', () => {
+            expect(minedBlock.hash).toEqual(cryptoHash(minedBlock.timestamp, lastBlock.hash, data));
         });
     });
 });
