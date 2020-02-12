@@ -4,7 +4,7 @@ const Block = require('./block');
 describe('Blockchain', () => {
     const blockchain = new Blockchain();
 
-    ii('contains a `chain` Array instance', () => {
+    it('contains a `chain` Array instance', () => {
         expect(blockchain.chain instanceof Array).toBe(true);
 
     });
@@ -15,8 +15,8 @@ describe('Blockchain', () => {
         const newData = 'foo-bar';
         blockchain.addBlock({data : newData });
 
-        expect(blockchain.chain[blockchain.chain.lenght-1].data).toEqual(newData);
-        
+        expect(blockchain.chain[blockchain.chain.length-1].data).toEqual(newData);
+
     });
 
 })
