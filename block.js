@@ -1,3 +1,4 @@
+//checking
 //inports data from the config.js file
 const { GENESIS_DATA } = require("./config");
 const cryptoHash = require("./crypto-hash");
