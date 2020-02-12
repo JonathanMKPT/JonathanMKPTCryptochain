@@ -19,4 +19,28 @@ describe('Blockchain', () => {
 
     });
 
+    describe('isValidChain()', () => {
+        describe('when the chain does not start with a genesis block', () =>{
+            it('returns false', () => {});
+
+            });
+
+            describe('when the chain starts wiht the genesis block and has multiple blocks', () => {
+                describe('and lastHash reference has changed', () =>{
+                    it('returns false', () => {});
+                });
+                
+                describe('when the chain starts with the genesis block and has multiple blocks', () => {
+                    describe('and a lastHash reference has changed', () => {
+                        it('returns false', () => {});
+                    });
+                    describe('and the chain contains a block with a valid field', () => {
+                        it('returns false', () => {});
+                    });
+                });
+            
+            });
+        });
+    }); 
+
 })
