@@ -46,7 +46,7 @@ describe('Blockchain', () => {
 
                         blockchain.chain[2].lastHash = 'broken-lastHash';
 
-                        expect(blockchain.isValidChain(blockchain.chain)).toBe(false);
+                        expect(Blockchain.isValidChain(blockchain.chain)).toBe(false);
                     });
                 });
                 
@@ -60,14 +60,14 @@ describe('Blockchain', () => {
                     
                             blockchain.chain[2].data = 'some-bad-and-evil-data';
 
-                            expect(blockchain.isValidChain(blockchain.chain)).toBe(false);
+                            expect(Blockchain.isValidChain(blockchain.chain)).toBe(false);
                         });
                     });
 
                     describe('and the chain does not contain any invalid blocks', () => {
                         it('returns true', () => {
   
-                            expect(blockchain.isValidChain(blockchain.chain)).toBe(true);
+                            expect(Blockchain.isValidChain(blockchain.chain)).toBe(true);
 
                         });
                     });
@@ -77,4 +77,3 @@ describe('Blockchain', () => {
         });
     }); 
 
-});
