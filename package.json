@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/JonathanMKPT/JonathanMKPTCryptochain#readme",
   "devDependencies": {
+    "braces": "^3.0.2",
     "jest": "^23.6.0"
   }
 }
