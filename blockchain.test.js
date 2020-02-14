@@ -93,9 +93,9 @@ describe('Blockchain', () => {
 
             describe('when the chain is longer', () => {
                 beforeEach(() => {
-                    blockchain.addBlock({ data: 'Bears'});
-                    blockchain.addBlock({data: 'Beets'});
-                    blockchain.addBlock({data: 'Battlestar Galactica' });
+                    newChain.addBlock({ data: 'Bears'});
+                    newChain.addBlock({data: 'Beets'});
+                    newChain.addBlock({data: 'Battlestar Galactica' });
                 });
 
                 describe('and the chain is invalid', () => {});
@@ -106,12 +106,12 @@ describe('Blockchain', () => {
 
                         expect(blockchain.chain).toEqual(originalChain);
 
-                    })
+                    });
                 describe('and the chain is valid', () => {
                     it('replaces the chain', () => {
                         blockchain.replaceChain(newChain.chain);
 
-                        expect(blockchain.chain).toEqual(newChain);
+                        expect(blockchain.chain).toEqual(newChain.chain);
                     });
                 });
             });
