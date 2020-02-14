@@ -2,11 +2,13 @@ const Blockchain = require('./blockchain');
 const Block = require('./block');
 
 describe('Blockchain', () => {
-    let blockchain, newChain; 
+    let blockchain, newChain, originalChain; 
 
     beforeEach( () => {
         blockchain = new Blockchain();
         newChain = new Blockchain();
+
+        originalChain = blockchain.chain;
     });
 
     it('contains a `chain` Array instance', () => {
@@ -79,16 +81,39 @@ describe('Blockchain', () => {
             });
     });
      
-    describe('replacementChain()', () => {
+    describe('replaceChain()', () => {
         describe('when the new chain is not longer', () => {
             it('does not replace the chain', () => {
-            
+                newChain.chain[0] = { new : 'chain' };
+
+                blockchain.replaceChain(newChain.chain);
+                
+                expect(blockchain.chain).toEqual(originalChain);
             });
 
             describe('when the chain is longer', () => {
-                describe('and the chain is invalid', () = > {});
+                beforeEach(() => {
+                    blockchain.addBlock({ data: 'Bears'});
+                    blockchain.addBlock({data: 'Beets'});
+                    blockchain.addBlock({data: 'Battlestar Galactica' });
+                });
 
-                describe('and the chain is valid', () => {});
+                describe('and the chain is invalid', () => {});
+                    it('does not replace the chain', () => {
+                        newChain.chain[2].hash = 'some-fake-hash';
+
+                        blockchain.replaceChain(newChain.chain);
+
+                        expect(blockchain.chain).toEqual(originalChain);
+
+                    })
+                describe('and the chain is valid', () => {
+                    it('replaces the chain', () => {
+                        blockchain.replaceChain(newChain.chain);
+
+                        expect(blockchain.chain).toEqual(newChain);
+                    });
+                });
             });
         });
     })
