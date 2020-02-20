@@ -12,13 +12,13 @@ describe('Block',() => {
 
     const block = new Block({timestamp,lastHash,hash, data, nonce, difficulty});
 
-    it("has a timestamp, lastHash, hash and data property", () => {
+    it('has a timestamp, lastHash, hash and data property', () => {
         expect(block.timestamp).toEqual(timestamp);
         expect(block.lastHash).toEqual(lastHash);
         expect(block.hash).toEqual(hash);
         expect(block.data).toEqual(data);
-        expect(block.data).toEqual(nonce);
-        expect(block.data).toEqual(difficulty);
+        expect(block.nonce).toEqual(nonce);
+        expect(block.difficulty).toEqual(difficulty);
     });
 
     describe('genesis()', () => {
