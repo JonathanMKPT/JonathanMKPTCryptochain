@@ -116,12 +116,14 @@ describe('Blockchain', () => {
                     newChain.addBlock({data: 'Battlestar Galactica' });
                 });
 
-                describe('and the chain is invalid', () => {});
+                describe('and the chain is invalid', () => {
                     beforeEach(() => {
                         newChain.chain[2].hash = 'some-fake-hash';
 
                         blockchain.replaceChain(newChain.chain);
                     });
+                
+                   
                     it('does not replace the chain', () => {
 
                         expect(blockchain.chain).toEqual(originalChain);
@@ -131,11 +133,11 @@ describe('Blockchain', () => {
                     it('logs an error', () => {
                         expect(errorMock).toHaveBeenCalled();
                     });
-                  
+                });  
                 describe('and the chain is valid', () => {
                     beforeEach(() => {
                         blockchain.replaceChain(newChain.chain);
-                    })
+                    });
     
                     it('replaces the chain', () => {
                         expect(blockchain.chain).toEqual(newChain.chain);
@@ -147,6 +149,6 @@ describe('Blockchain', () => {
                 });
             });
         });
-    })
+    });
 }); 
 
