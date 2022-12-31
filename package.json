@@ -20,7 +20,7 @@
   "homepage": "https://github.com/JonathanMKPT/JonathanMKPTCryptochain#readme",
   "devDependencies": {
     "braces": "^3.0.2",
-    "jest": "^23.6.0"
+    "jest": "^29.3.1"
   },
   "dependencies": {
     "express": "^4.16.3",
